@@ -1,6 +1,6 @@
 # Embedding Dimensionality's Effect on Semantic Meaning
 
-[Full Project Here](embedding-dimensionality-semantics/Deep_Learning_Capstone_Project_Augustin_Langlet.ipynb)
+[Full Project Here](Deep_Learning_Capstone_Project_Augustin_Langlet.ipynb)
 
 ## Introduction
 As a capstone project for a Deep Learning class, I decided to dig into the fundamental mechanisms behind encoding meaning into word vector representations for NLP. To embed meaning into vector representations, the core principle is to take a co-occurrence matrix that encodes how often given words appear in certain contexts and reduce it to a smaller vector space to squeeze words with similar context patterns together. These vectors then represent the similarity and relation of words, taking advantage of the Distributional Hypothesis in linguistics. This interesting process of reducing the amount of data to extract semantic meaning inspired me to make this project. 
@@ -25,17 +25,17 @@ After examining multiple methods, I decided on building my word embeddings from 
 
 | Raw counts | PPMI |
 |---|---|
-| ![Cosine similarity from raw counts](assets/cosine_sim_raw_counts.png) | ![Cosine similarity from PPMI](assets/cosine_sim_ppmi.png) |
+| ![Cosine similarity from raw counts](images/cosine_sim_raw_counts.png) | ![Cosine similarity from PPMI](images/cosine_sim_ppmi.png) |
 
 - The relational-analogy visualizations were noisy and inconsistent as well — some dimensions captured a clean shared "axis" between pairs, others didn't. A bigger corpus and more carefully curated pairs could help.
 
-![Action pairs across embedding sizes](assets/action_pairs_dim_grid.png)
+![Action pairs across embedding sizes](images/action_pairs_dim_grid.png)
 
 - I was surprised by the vector embeddings containing negative components considering both base matrices are completely non-negative, causing negative cosine similarities and also having similarities occasionally increase while sweeping through dimensions. But they are indeed not necessarily PSD and have negative eigenvalues which SVD flips to retain positive singular values. It could be valuable to try similar decompositions that don't affect the signs of vectors to make results more legible.
 
 ## Code
 The whole project and results are accessible on this repo. But you can access a copy of the code through Google Colab below.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/augustinlanglet/embedding-dimensionality-semantics/blob/main/embedding-dimensionality-semantics/Deep_Learning_Capstone_Project_Augustin_Langlet.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/augustinlanglet/embedding-dimensionality-semantics/blob/main/Deep_Learning_Capstone_Project_Augustin_Langlet.ipynb)
 
 Tech Stack: `numpy` · `scipy.linalg.svd` · `scikit-learn` (PCA, cosine similarity) · `matplotlib` · `nltk` (Brown corpus)
